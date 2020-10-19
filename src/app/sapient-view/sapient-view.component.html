@@ -1,0 +1,57 @@
+<div class="container">
+    <h3>SpaceX Launch Programs</h3>
+    <div *ngIf="launchYearArr.length === 0" class="loader"></div>
+    <div *ngIf="launchYearArr.length !== 0" style="width: 100%">
+        <div class="sideMenu">
+            <h6>Launch Year</h6>
+            <ul>
+                <li class="yearBtn" *ngFor="let year of launchYearArr; index as i">
+                    <button class="btn" [ngClass]="{ active: year === launchYear }" (click)="setLaunchYear(year)">
+                        {{ year }}
+                    </button>
+                </li>
+            </ul>
+            <h6>Successful Launch</h6>
+
+            <div class="btn-wrapper">
+                <button class="btn" [ngClass]="{ active: launchSuccess }" (click)="setLaunchTrue()">
+                    True
+                </button>
+                <button class="btn" [ngClass]="{ active: launchSuccess === false }" (click)="setLaunchFalse()">
+                    False
+                </button>
+            </div>
+            <h6>Successful Landing</h6>
+            <div class="btn-wrapper">
+                <button class="btn" class="btn" [ngClass]="{ active: landSuccess }" (click)="setLandingTrue()">
+                    True
+                </button>
+                <button class="btn" [ngClass]="{ active: landSuccess === false }" (click)="setLandingFalse()">
+                    False
+                </button>
+            </div>
+        </div>
+        <div class="content">
+            <div *ngIf="isLoading" class="loader"></div>
+            <ul *ngIf="!isLoading" class="mission-wrapper">
+                <li class="mission" *ngFor="let data of spaceXdata; index as i">
+                    <div class="mission-img">
+                        <img [alt]="" [src]="data.links.mission_patch_small" />
+                    </div>
+                    <h3>{{ data.mission_name }} #{{ data.flight_number }}</h3>
+                    <div class="mission-id">
+                        <strong>Mission Ids:</strong>
+                        <ul>
+                            <li *ngFor="let id of data.mission_id; index as i">{{ id }}</li>
+                        </ul>
+                    </div>
+                    <p><strong>Launch Year:</strong> {{ data.launch_year }}</p>
+                    <p><strong>Successful Launch:</strong> {{ data.launch_success }}</p>
+                    <p><strong>Successful Landing:</strong> {{ data.launch_landing }}</p>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="developedBy"><strong>Developed by: </strong> Amrishkhan </div>
+</div>
