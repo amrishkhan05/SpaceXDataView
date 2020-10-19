@@ -1,6 +1,6 @@
 # SapientInterview
 
-View the project at `https://amrishkhan05.github.io/SpaceXDataView/`
+View the project at [`https://amrishkhan05.github.io/SpaceXDataView/`](https://amrishkhan05.github.io/SpaceXDataView/)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.3.
 
