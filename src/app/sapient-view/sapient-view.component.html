@@ -1,7 +1,7 @@
 <div class="container">
     <h3>SpaceX Launch Programs</h3>
     <div *ngIf="launchYearArr.length === 0" class="loader"></div>
-    <div *ngIf="launchYearArr.length !== 0" style="width: 100%">
+    <div *ngIf="launchYearArr.length !== 0" class="wrapper" style="width: 100%">
         <div class="sideMenu">
             <h6>Launch Year</h6>
             <ul>
@@ -13,23 +13,31 @@
             </ul>
             <h6>Successful Launch</h6>
 
-            <div class="btn-wrapper">
-                <button class="btn" [ngClass]="{ active: launchSuccess }" (click)="setLaunchTrue()">
-                    True
-                </button>
-                <button class="btn" [ngClass]="{ active: launchSuccess === false }" (click)="setLaunchFalse()">
-                    False
-                </button>
-            </div>
+            <ul>
+                <li class="yearBtn">
+                    <button class="btn" [ngClass]="{ active: launchSuccess }" (click)="setLaunchTrue()">
+                        True
+                    </button>
+                </li>
+                <li class="yearBtn">
+                    <button class="btn" [ngClass]="{ active: launchSuccess === false }" (click)="setLaunchFalse()">
+                        False
+                    </button>
+                </li>
+            </ul>
             <h6>Successful Landing</h6>
-            <div class="btn-wrapper">
-                <button class="btn" class="btn" [ngClass]="{ active: landSuccess }" (click)="setLandingTrue()">
-                    True
-                </button>
-                <button class="btn" [ngClass]="{ active: landSuccess === false }" (click)="setLandingFalse()">
-                    False
-                </button>
-            </div>
+            <ul>
+                <li class="yearBtn">
+                    <button class="btn" class="btn" [ngClass]="{ active: landSuccess }" (click)="setLandingTrue()">
+                        True
+                    </button>
+                </li>
+                <li class="yearBtn">
+                    <button class="btn" [ngClass]="{ active: landSuccess === false }" (click)="setLandingFalse()">
+                        False
+                    </button>
+                </li>
+            </ul>
         </div>
         <div class="content">
             <div *ngIf="isLoading" class="loader"></div>
@@ -53,5 +61,5 @@
         </div>
 
     </div>
-    <div class="developedBy"><strong>Developed by: </strong> Amrishkhan </div>
+    <div class="developedBy"><strong>Developed by:</strong> &nbsp;Amrishkhan </div>
 </div>
